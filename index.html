@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blue Charter | Alquiler de barcos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="topbar">
+        <div class="brand">
+          <span class="brand-mark">Blue Charter</span>
+        </div>
+        <a class="topbar-link" href="#reservas">Reservar ahora</a>
+      </nav>
+
+      <section class="hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Escapadas privadas por la costa</p>
+          <h1>Reserva tu barco en segundos desde el calendario</h1>
+          <p class="hero-text">
+            Elige una embarcacion, revisa los dias disponibles y confirma tu
+            reserva con un solo clic.
+          </p>
+          <a class="cta-button" href="#reservas">Ver disponibilidad</a>
+        </div>
+        <div class="hero-card">
+          <p class="hero-card-label">Experiencia destacada</p>
+          <h2>Salida de dia completo con patron</h2>
+          <p>
+            Ideal para grupos pequenos, celebraciones o una jornada relajada en
+            el mar.
+          </p>
+          <div class="hero-stats">
+            <div>
+              <strong>8</strong>
+              <span>personas</span>
+            </div>
+            <div>
+              <strong>Desde 100 EUR</strong>
+              <span>por jornada</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="fleet-section">
+        <div class="section-heading">
+          <p class="eyebrow">Flota disponible</p>
+          <h2>Elige el barco que quieres reservar</h2>
+          <p>
+            Cada barco tiene su propio calendario de disponibilidad para que la
+            reserva sea clara y rapida.
+          </p>
+        </div>
+        <div class="boat-list" id="boat-list"></div>
+      </section>
+
+      <section class="booking-section" id="reservas">
+        <div class="section-heading compact">
+          <p class="eyebrow">Reservas</p>
+          <h2>Selecciona un dia libre en el calendario</h2>
+        </div>
+
+        <div class="booking-layout">
+          <article class="booking-panel summary-panel">
+            <div id="selected-boat-summary"></div>
+            <ul class="summary-features" id="selected-boat-features"></ul>
+          </article>
+
+          <article class="booking-panel calendar-panel">
+            <div class="calendar-topbar">
+              <button class="month-button" id="prev-month" type="button">
+                &#8592;
+              </button>
+              <h3 id="calendar-title"></h3>
+              <button class="month-button" id="next-month" type="button">
+                &#8594;
+              </button>
+            </div>
+
+            <div class="calendar-legend">
+              <span><i class="legend-dot available"></i> Libre</span>
+              <span><i class="legend-dot selected"></i> Seleccionado</span>
+              <span><i class="legend-dot booked"></i> Reservado</span>
+            </div>
+
+            <div class="calendar-grid weekdays" id="weekdays"></div>
+            <div class="calendar-grid days" id="calendar-days"></div>
+          </article>
+
+          <article class="booking-panel form-panel">
+            <div class="selected-date-box">
+              <p class="selected-date-label">Dia elegido</p>
+              <strong id="selected-date-text">Todavia no has seleccionado una fecha</strong>
+            </div>
+
+            <p class="payment-note" id="payment-note"></p>
+
+            <form id="reservation-form" class="reservation-form">
+              <label>
+                Nombre
+                <input
+                  type="text"
+                  id="customer-name"
+                  name="customerName"
+                  placeholder="Tu nombre"
+                  required
+                />
+              </label>
+
+              <label>
+                Email
+                <input
+                  type="email"
+                  id="customer-email"
+                  name="customerEmail"
+                  placeholder="nombre@correo.com"
+                  required
+                />
+              </label>
+
+              <button class="cta-button solid" id="checkout-button" type="submit">
+                Reservar y pagar con Stripe
+              </button>
+            </form>
+
+            <p class="status-message" id="status-message" aria-live="polite"></p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
